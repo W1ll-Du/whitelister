@@ -1,0 +1,7 @@
+.idea/
+.gradle/
+build/
+out/
+app/src/main/resources/config.json
+todo.txt
+whitelistConfig.json
