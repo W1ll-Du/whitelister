@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.w1ll_du.whitelister.command.CommandContext;
 import io.github.w1ll_du.whitelister.command.ICommand;
 import io.github.w1ll_du.whitelister.Utils;
+import org.json.simple.JSONObject;
 
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -34,8 +35,9 @@ public class LinkCommand implements ICommand {
         else {
             try {
                 // checks validity of name
-                String uuid = (String) Utils.getJSONObject("https://api.mojang.com/users/profiles/minecraft/" + username).get("id");
-
+                JSONObject resp = Utils.getJSONObject("https://api.mojang.com/users/profiles/minecraft/" + username);
+                String uuid = (String) resp.get("id");
+                username = (String) resp.get("name");
                 if (ctx.getPlayerMap().containsKey(ctx.getAuthor().getId())) {
                     String oldName = ctx.getPlayerMap().get(ctx.getAuthor().getId());
                     Utils.rconCommand("whitelist remove " + oldName);
