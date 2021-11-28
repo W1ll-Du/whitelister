@@ -10,7 +10,6 @@ import java.nio.file.Paths;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
-import io.github.w1ll_du.whitelister.utils.Utils;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;

@@ -1,11 +1,9 @@
 package io.github.w1ll_du.whitelister.command.commands;
 
-import com.fasterxml.jackson.core.JsonGenerationException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.w1ll_du.whitelister.command.CommandContext;
 import io.github.w1ll_du.whitelister.command.ICommand;
-import io.github.w1ll_du.whitelister.utils.Utils;
+import io.github.w1ll_du.whitelister.Utils;
 
 import java.io.IOException;
 import java.nio.file.Paths;

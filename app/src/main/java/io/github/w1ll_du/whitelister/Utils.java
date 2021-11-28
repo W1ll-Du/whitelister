@@ -1,4 +1,4 @@
-package io.github.w1ll_du.whitelister.utils;
+package io.github.w1ll_du.whitelister;
 
 import com.github.t9t.minecraftrconclient.RconClient;
 import com.mashape.unirest.http.Unirest;
