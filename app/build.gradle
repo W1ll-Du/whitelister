@@ -4,8 +4,12 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '6.0.0'
 }
 
+shadowJar {
+    archiveBaseName.set('whitelister')
+}
+
 mainClassName = 'io.github.w1ll_du.whitelister.Bot'
-version '1.0'
+version '1.0.0'
 sourceCompatibility = JavaVersion.VERSION_12
 
 repositories {
