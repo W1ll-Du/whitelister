@@ -77,9 +77,6 @@ public class Bot {
                 GatewayIntent.GUILD_BANS,
                 GatewayIntent.GUILD_MESSAGES)
         .disableCache(CacheFlag.VOICE_STATE, CacheFlag.EMOTE)
-        .enableIntents(GatewayIntent.GUILD_MEMBERS,
-                GatewayIntent.GUILD_BANS,
-                GatewayIntent.GUILD_MESSAGES)
         .addEventListeners(new Listener(conf, playerMap))
         .build();
     }
