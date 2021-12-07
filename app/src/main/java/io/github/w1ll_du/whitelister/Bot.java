@@ -31,12 +31,14 @@ public class Bot {
             e.printStackTrace();
             ObjectWriter writer = new ObjectMapper().writer(new DefaultPrettyPrinter());
             Map<String, String> map = new LinkedHashMap<>();
+            // discord cfg
             map.put("token", "YOUR TOKEN HERE");
             map.put("prefix", "w!");
             map.put("owner_id", "1234567890");
             map.put("discord_server_id", "9012345678");
             map.put("bot_channel_id", "9801234567");
             map.put("whitelist_role_id", "9012345678");
+            // minecraft cfg
             map.put("mc_server_ip", "5678901234");
             map.put("rcon_port", "25575");
             map.put("rcon_password", "password");
