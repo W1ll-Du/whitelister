@@ -43,7 +43,7 @@ public class Listener extends ListenerAdapter {
         if (event.isWebhookMessage()) {
             return;
         }
-        if (! event.getGuild().getId().equals(conf.get("server_id"))) {
+        if (! event.getGuild().getId().equals(conf.get("discord_server_id"))) {
             return;
         }
         if (! event.getChannel().getId().equals(conf.get("bot_channel_id"))) {
