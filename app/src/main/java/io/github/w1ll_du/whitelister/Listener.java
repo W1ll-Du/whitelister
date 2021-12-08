@@ -20,7 +20,7 @@ public class Listener extends ListenerAdapter {
     Map<String, String> conf;
     private final String prefix;
     private final String owner_id;
-    private BidiMap<String, String> playerMap;
+    private final BidiMap<String, String> playerMap;
 
     public Listener(Map<String, String> conf, BidiMap<String, String> playerMap) {
         this.conf = conf;
