@@ -2,7 +2,6 @@ package io.github.w1ll_du.whitelister;
 
 import javax.annotation.Nonnull;
 
-import io.github.w1ll_du.whitelister.command.commands.fdLinkHandler;
 import me.duncte123.botcommons.BotCommons;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -38,16 +37,13 @@ public class Listener extends ListenerAdapter {
     @Override
     public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {
         String raw = event.getMessage().getContentRaw();
-        if (event.getAuthor().getId().equals(conf.get("fdlink_bot_id"))) {
-            fdLinkHandler.handle(event, playerMap, conf);
-        }
         if (event.getAuthor().isBot()) {
             return;
         }
         if (event.isWebhookMessage()) {
             return;
         }
-        if (! event.getGuild().getId().equals(conf.get("server_id"))) {
+        if (! event.getGuild().getId().equals(conf.get("discord_server_id"))) {
             return;
         }
         if (! event.getChannel().getId().equals(conf.get("bot_channel_id"))) {
@@ -59,7 +55,6 @@ public class Listener extends ListenerAdapter {
             event.getJDA().shutdown();
             BotCommons.shutdown(event.getJDA());
         }
-        // TODO: fdLinkHandler
         try {
             manager.handle(event, prefix, playerMap, conf);
         } catch (IOException e) {

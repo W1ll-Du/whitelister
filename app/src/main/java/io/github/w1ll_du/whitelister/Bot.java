@@ -31,15 +31,15 @@ public class Bot {
             e.printStackTrace();
             ObjectWriter writer = new ObjectMapper().writer(new DefaultPrettyPrinter());
             Map<String, String> map = new LinkedHashMap<>();
+            // discord cfg
             map.put("token", "YOUR TOKEN HERE");
             map.put("prefix", "w!");
             map.put("owner_id", "1234567890");
-            map.put("fdlink_bot_id", "0123456789");
-            map.put("server_id", "9012345678");
-            map.put("bot_channel_id", "8901234567");
-            map.put("log_channel_id", "7890123456");
-            map.put("whitelist_role_id", "6789012345");
-            map.put("server_ip", "5678901234");
+            map.put("discord_server_id", "9012345678");
+            map.put("bot_channel_id", "9801234567");
+            map.put("whitelist_role_id", "9012345678");
+            // minecraft cfg
+            map.put("mc_server_ip", "5678901234");
             map.put("rcon_port", "25575");
             map.put("rcon_password", "password");
             try {
@@ -77,9 +77,6 @@ public class Bot {
                 GatewayIntent.GUILD_BANS,
                 GatewayIntent.GUILD_MESSAGES)
         .disableCache(CacheFlag.VOICE_STATE, CacheFlag.EMOTE)
-        .enableIntents(GatewayIntent.GUILD_MEMBERS,
-                GatewayIntent.GUILD_BANS,
-                GatewayIntent.GUILD_MESSAGES)
         .addEventListeners(new Listener(conf, playerMap))
         .build();
     }
