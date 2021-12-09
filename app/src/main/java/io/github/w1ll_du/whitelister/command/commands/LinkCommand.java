@@ -36,6 +36,7 @@ public class LinkCommand implements ICommand {
             try {
                 // checks validity of name
                 JSONObject resp = Utils.getJSONObject("https://api.mojang.com/users/profiles/minecraft/" + username);
+                // makes sure the case is right
                 username = (String) resp.get("name");
                 if (ctx.getPlayerMap().containsKey(ctx.getAuthor().getId())) {
                     String oldName = ctx.getPlayerMap().get(ctx.getAuthor().getId());
