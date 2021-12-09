@@ -42,6 +42,11 @@ public class Bot {
             map.put("mc_server_ip", "5678901234");
             map.put("rcon_port", "25575");
             map.put("rcon_password", "password");
+            // fdlink cfg
+            map.put("enable_fdlink", "false");
+            map.put("fdlink_bot_id", "0123456789");
+            map.put("log_channel_id", "7890123456");
+            map.put("online_role_id", "6789012345");
             try {
                 writer.writeValue(Paths.get("whitelistConfig.json").toFile(), map);
             } catch (Exception ex) {
