@@ -17,9 +17,11 @@ public class ForceUnlinkCommand extends AAdminCommand {
             ctx.getChannel().sendMessage("There is no linked account").queue();
             return;
         }
+        /*
         Utils.rconCommand("whitelist remove " + username);
         ctx.getChannel().sendMessage("Unlinked with " + username).queue();
         Utils.rconCommand("whitelist reload");
+        */
         ctx.getGuild().removeRoleFromMember(ctx.getPlayerMap().inverseBidiMap().get(username),
                 ctx.getGuild().getRoleById(ctx.getConf().get("whitelist_role_id"))).queue();
         ctx.getGuild().getMemberById(ctx.getPlayerMap().inverseBidiMap().get(username)).modifyNickname(null).queue();
