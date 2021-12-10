@@ -22,7 +22,8 @@ public class ForceUnlinkCommand extends AAdminCommand {
         Utils.rconCommand("whitelist reload");
         ctx.getGuild().removeRoleFromMember(ctx.getPlayerMap().inverseBidiMap().get(username),
                 ctx.getGuild().getRoleById(ctx.getConf().get("whitelist_role_id"))).queue();
-        ctx.getGuild().getMemberById(ctx.getPlayerMap().inverseBidiMap().get(username)).modifyNickname(null).queue();
+        ctx.getGuild().modifyNickname(ctx.getGuild().getMemberById(ctx.getPlayerMap().inverseBidiMap().get(username)),
+                null).queue();
         ctx.getPlayerMap().inverseBidiMap().remove(username);
         try {
             ObjectMapper mapper = new ObjectMapper();
