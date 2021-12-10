@@ -2,10 +2,7 @@ package io.github.w1ll_du.whitelister;
 
 import io.github.w1ll_du.whitelister.command.CommandContext;
 import io.github.w1ll_du.whitelister.command.ICommand;
-import io.github.w1ll_du.whitelister.command.commands.PingCommand;
-import io.github.w1ll_du.whitelister.command.commands.LinkCommand;
-import io.github.w1ll_du.whitelister.command.commands.UnlinkCommand;
-import io.github.w1ll_du.whitelister.command.commands.WhitelistCommand;
+import io.github.w1ll_du.whitelister.command.commands.*;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import org.apache.commons.collections4.BidiMap;
 
@@ -25,6 +22,8 @@ public class CommandManager {
         addCommand(new LinkCommand());
         addCommand(new UnlinkCommand());
         addCommand(new WhitelistCommand());
+        addCommand(new ForceUnlinkCommand());
+        addCommand(new SoftbanCommand());
     }
 
     @Nullable
