@@ -4,10 +4,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.w1ll_du.whitelister.Utils;
 import io.github.w1ll_du.whitelister.command.AAdminCommand;
 import io.github.w1ll_du.whitelister.command.CommandContext;
+import net.dv8tion.jda.api.entities.Member;
 
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class ForceUnlinkCommand extends AAdminCommand {
     @Override
@@ -22,8 +24,13 @@ public class ForceUnlinkCommand extends AAdminCommand {
         Utils.rconCommand("whitelist reload");
         ctx.getGuild().removeRoleFromMember(ctx.getPlayerMap().inverseBidiMap().get(username),
                 ctx.getGuild().getRoleById(ctx.getConf().get("whitelist_role_id"))).queue();
-        ctx.getGuild().modifyNickname(ctx.getEvent().getGuild().getMemberById(ctx.getPlayerMap().inverseBidiMap().get(username)),
-                null).queue();
+        ctx.getChannel().sendMessage("Remember to reset the nickname.").queue();
+        ctx.getGuild().getMembersByNickname(username, false).forEach(new Consumer<Member>() {
+            @Override
+            public void accept(Member member) {
+                member.modifyNickname(null).queue();
+            }
+        });
         ctx.getPlayerMap().inverseBidiMap().remove(username);
         try {
             ObjectMapper mapper = new ObjectMapper();
