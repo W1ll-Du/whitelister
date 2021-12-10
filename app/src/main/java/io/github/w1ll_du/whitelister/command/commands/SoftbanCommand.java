@@ -8,7 +8,7 @@ public class SoftbanCommand extends AAdminCommand {
     protected void handle2(CommandContext ctx) {
         new ForceUnlinkCommand().handle2(ctx);
         ctx.getGuild()
-                .removeRoleFromMember(ctx.getPlayerMap().inverseBidiMap().get(ctx.getArgs().get(0)),
+                .addRoleToMember(ctx.getPlayerMap().inverseBidiMap().get(ctx.getArgs().get(0)),
                         ctx.getGuild().getRoleById(ctx.getConf().get("banned_role_id"))).queue();
     }
 
