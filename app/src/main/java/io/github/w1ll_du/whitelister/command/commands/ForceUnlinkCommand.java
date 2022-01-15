@@ -4,12 +4,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.w1ll_du.whitelister.Utils;
 import io.github.w1ll_du.whitelister.command.AAdminCommand;
 import io.github.w1ll_du.whitelister.command.CommandContext;
-import net.dv8tion.jda.api.entities.Member;
-
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.function.Consumer;
+import java.util.Objects;
 
 public class ForceUnlinkCommand extends AAdminCommand {
     @Override
@@ -22,15 +20,7 @@ public class ForceUnlinkCommand extends AAdminCommand {
         Utils.rconCommand("whitelist remove " + username);
         ctx.getChannel().sendMessage("Unlinked with " + username).queue();
         Utils.rconCommand("whitelist reload");
-        ctx.getGuild().removeRoleFromMember(ctx.getPlayerMap().inverseBidiMap().get(username),
-                ctx.getGuild().getRoleById(ctx.getConf().get("whitelist_role_id"))).queue();
-        ctx.getChannel().sendMessage("Remember to reset the nickname.").queue();
-        ctx.getGuild().getMembersByNickname(username, false).forEach(new Consumer<Member>() {
-            @Override
-            public void accept(Member member) {
-                member.modifyNickname(null).queue();
-            }
-        });
+        String id = ctx.getPlayerMap().inverseBidiMap().get(username);
         ctx.getPlayerMap().inverseBidiMap().remove(username);
         try {
             ObjectMapper mapper = new ObjectMapper();
@@ -38,6 +28,17 @@ public class ForceUnlinkCommand extends AAdminCommand {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+
+        ctx.getGuild().removeRoleFromMember(id,
+                Objects.requireNonNull(ctx.getGuild().getRoleById(ctx.getConf().get("whitelist_role_id")))).queue();
+        System.out.println("removed role");
+        ctx.getChannel().sendMessage("Remember to reset the nickname.").queue();
+        System.out.println(id);
+        System.out.println(ctx.getGuild().getMemberById(id).toString());
+        Objects.requireNonNull(ctx.getGuild().getMemberById(id)).modifyNickname(null).queue();
+        System.out.println("reset nickname");
     }
 
     @Override
@@ -47,6 +48,6 @@ public class ForceUnlinkCommand extends AAdminCommand {
 
     @Override
     public List<String> getAliases() {
-        return List.of("fUnlink", "funlink");
+        return List.of("fUnlink", "funlink", "forceunlink");
     }
 }
