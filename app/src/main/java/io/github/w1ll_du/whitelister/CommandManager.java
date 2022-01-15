@@ -23,6 +23,10 @@ public class CommandManager {
         addCommand(new UnlinkCommand());
         addCommand(new WhitelistCommand());
         addCommand(new ForceUnlinkCommand());
+        addCommand(new RconCommand());
+        addCommand(new GetConfigCommand());
+        // addCommand(new SetConfigCommand());
+        addCommand(new GetPlayerMapCommand());
     }
 
     @Nullable
