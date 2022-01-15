@@ -7,6 +7,7 @@ import io.github.w1ll_du.whitelister.Utils;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.Objects;
 
 public class UnlinkCommand implements ICommand {
     @Override
@@ -27,7 +28,8 @@ public class UnlinkCommand implements ICommand {
         Utils.rconCommand("whitelist reload");
         ctx.getMember().modifyNickname(null).queue();
         ctx.getGuild().removeRoleFromMember(ctx.getAuthor().getId(),
-                ctx.getGuild().getRoleById(ctx.getConf().get("whitelist_role_id"))).queue();
+                Objects.requireNonNull(
+                        ctx.getGuild().getRoleById(ctx.getConf().get("whitelist_role_id")))).queue();
     }
 
     @Override
