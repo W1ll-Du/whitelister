@@ -7,7 +7,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.util.List;
 import java.util.Map;
 
 public class Utils {
@@ -46,14 +45,5 @@ public class Utils {
         }
 
         return obj;
-    }
-
-    public static String compress(List<String> args) {
-        if (args.size() == 0) return "";
-        String result = args.get(0);
-        for (int i = 1; i < args.size(); i++) {
-            result = result +  " " + args.get(i);
-        }
-        return result;
     }
 }

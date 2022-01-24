@@ -18,15 +18,14 @@ public class CommandManager {
     private final List<ICommand> commands = new ArrayList<>();
 
     public CommandManager() {
-        // addCommand(new PingCommand());
+        //addCommand(new PingCommand());
         addCommand(new LinkCommand());
         addCommand(new UnlinkCommand());
         addCommand(new WhitelistCommand());
         addCommand(new ForceUnlinkCommand());
-        addCommand(new RconCommand());
-        addCommand(new GetConfigCommand());
-        // addCommand(new SetConfigCommand());
-        addCommand(new GetPlayerMapCommand());
+        addCommand(new GetConfigCommand()); //(debug)
+        //addCommand(new SetConfigCommand());
+        //addCommand(new GetPlayerMapCommand()); // (debug)
     }
 
     @Nullable
