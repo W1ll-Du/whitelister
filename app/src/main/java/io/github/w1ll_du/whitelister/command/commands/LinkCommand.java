@@ -18,13 +18,14 @@ public class LinkCommand implements ICommand {
         }
         String name = ctx.getArgs().get(0);
         if (! isValidUsername(name)) {
-            ctx.getChannel().sendMessage("Username invalid").queue();
+            ctx.getChannel().sendMessage("Username invalid")
+                    .queue();
             return;
         }
         // already linked with another disc account
         if (ctx.getPlayerMap().containsValue(name)) {
             ctx.getChannel().sendMessage(name + " is already linked.")
-                .queue();
+                    .queue();
             return;
         }
         // already linked with another mc account
