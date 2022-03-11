@@ -1,11 +1,11 @@
 package io.github.w1ll_du.whitelister.command.commands;
 
+import io.github.w1ll_du.whitelister.command.AAdminCommand;
 import io.github.w1ll_du.whitelister.command.CommandContext;
-import io.github.w1ll_du.whitelister.command.ICommand;
 
-public class GetConfigCommand implements ICommand {
+public class GetConfigCommand extends AAdminCommand {
     @Override
-    public void handle(CommandContext ctx) {
+    protected void handle2(CommandContext ctx) {
         ctx.getChannel().sendMessage(ctx.getConf().toString()).queue();
     }
 
