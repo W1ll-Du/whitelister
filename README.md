@@ -16,6 +16,8 @@ Whitelists the player.
 #### unlink
 Removes the player from the whitelist and removes the whitelisted role.<br/>
 Resets nickname.
+<br/>
+<br/>
 
 ### Admin Commands
 
@@ -26,5 +28,7 @@ Whitelists all players.
 Case sentitive.<br/>
 Removes the player from the whitelist and removes the whitelisted role.<br/>
 Resets nickname.
+<br/>
+<br/>
 
 ## Config
