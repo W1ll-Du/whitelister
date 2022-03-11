@@ -1,4 +1,4 @@
-package io.github.w1ll_du.whitelister.command.commands;
+package io.github.w1ll_du.whitelister;
 
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import org.apache.commons.collections4.BidiMap;

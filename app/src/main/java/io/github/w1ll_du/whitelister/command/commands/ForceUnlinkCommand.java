@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.w1ll_du.whitelister.Utils;
 import io.github.w1ll_du.whitelister.command.AAdminCommand;
 import io.github.w1ll_du.whitelister.command.CommandContext;
+import me.dilley.MineStat;
+
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.List;
@@ -12,6 +14,12 @@ import java.util.Objects;
 public class ForceUnlinkCommand extends AAdminCommand {
     @Override
     protected void handle2(CommandContext ctx) {
+        // simulate ARconCommand
+        if (!new MineStat(ctx.getConf().get("mc_server_ip"), 25565).isServerUp()) {
+            ctx.getChannel().sendMessage("Could not execute command at the time.").queue();
+            return;
+        }
+
         String username = ctx.getArgs().get(0);
         if (! ctx.getPlayerMap().inverseBidiMap().containsKey(username)) {
             ctx.getChannel().sendMessage("There is no linked account").queue();
