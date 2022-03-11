@@ -7,6 +7,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class Utils {
@@ -45,5 +47,13 @@ public class Utils {
         }
 
         return obj;
+    }
+
+    public static void rconCommands(List<String> commands) {
+        try (RconClient client = RconClient.open(conf.get("mc_server_ip"), Integer.parseInt(conf.get("rcon_port")), conf.get("rcon_password"))) {
+            for (String command : commands) {
+                client.sendCommand(command);
+            }
+        }
     }
 }
