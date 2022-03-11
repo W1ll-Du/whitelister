@@ -2,7 +2,6 @@ package io.github.w1ll_du.whitelister;
 
 import javax.annotation.Nonnull;
 
-import io.github.w1ll_du.whitelister.command.commands.fdLinkHandler;
 import me.duncte123.botcommons.BotCommons;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
