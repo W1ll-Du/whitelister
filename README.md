@@ -30,5 +30,6 @@ Removes the player from the whitelist and removes the whitelisted role.<br/>
 Resets nickname.
 <br/>
 <br/>
+<br/>
 
 ## Config
