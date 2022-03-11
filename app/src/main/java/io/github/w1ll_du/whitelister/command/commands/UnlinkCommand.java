@@ -1,17 +1,17 @@
 package io.github.w1ll_du.whitelister.command.commands;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.github.w1ll_du.whitelister.command.ARconCommand;
 import io.github.w1ll_du.whitelister.command.CommandContext;
-import io.github.w1ll_du.whitelister.command.ICommand;
 import io.github.w1ll_du.whitelister.Utils;
 
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Objects;
 
-public class UnlinkCommand implements ICommand {
+public class UnlinkCommand extends ARconCommand {
     @Override
-    public void handle(CommandContext ctx) {
+    protected void handle2(CommandContext ctx) {
         if (! ctx.getPlayerMap().containsKey(ctx.getAuthor().getId())) {
             ctx.getChannel().sendMessage("There is no linked account").queue();
             return;

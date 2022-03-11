@@ -2,16 +2,16 @@ package io.github.w1ll_du.whitelister.command.commands;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.w1ll_du.whitelister.command.CommandContext;
-import io.github.w1ll_du.whitelister.command.ICommand;
+import io.github.w1ll_du.whitelister.command.ARconCommand;
 import io.github.w1ll_du.whitelister.Utils;
 import org.json.simple.JSONObject;
 
 import java.io.IOException;
 import java.nio.file.Paths;
 
-public class LinkCommand implements ICommand {
+public class LinkCommand extends ARconCommand {
     @Override
-    public void handle(CommandContext ctx) {
+    protected void handle2(CommandContext ctx) {
         if (ctx.getArgs().size() == 0) {
             new UnlinkCommand().handle(ctx);
             return;

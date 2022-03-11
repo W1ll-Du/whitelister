@@ -1,12 +1,13 @@
 package io.github.w1ll_du.whitelister.command.commands;
 
+import io.github.w1ll_du.whitelister.command.ARconCommand;
 import io.github.w1ll_du.whitelister.command.CommandContext;
 import io.github.w1ll_du.whitelister.command.ICommand;
 import io.github.w1ll_du.whitelister.Utils;
 
-public class WhitelistCommand implements ICommand {
+public class WhitelistCommand extends ARconCommand {
     @Override
-    public void handle(CommandContext ctx) {
+    protected void handle2(CommandContext ctx) {
         ctx.getChannel().sendMessage(Utils.rconCommand("/whitelist list")).queue();
     }
 

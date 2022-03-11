@@ -19,12 +19,13 @@ public class CommandManager {
 
     public CommandManager() {
         //addCommand(new PingCommand());
-        addCommand(new LinkCommand());
-        addCommand(new RelinkCommand());
-        addCommand(new UnlinkCommand());
         addCommand(new WhitelistCommand());
+        addCommand(new LinkCommand());
+        addCommand(new UnlinkCommand());
+        addCommand(new RelinkCommand());
+        addCommand(new RefreshCommand());
         addCommand(new ForceUnlinkCommand());
-        addCommand(new GetConfigCommand()); //(debug)
+        //addCommand(new GetConfigCommand()); //(debug)
         //addCommand(new SetConfigCommand());
         //addCommand(new GetPlayerMapCommand()); // (debug)
     }
