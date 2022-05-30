@@ -9,7 +9,7 @@ shadowJar {
 }
 
 mainClassName = 'io.github.w1ll_du.whitelister.Bot'
-version '1.0.5'
+version '1.1.0'
 sourceCompatibility = JavaVersion.VERSION_12
 
 repositories {
