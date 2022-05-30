@@ -5,7 +5,7 @@ public abstract class ARconCommand implements ICommand {
     @Override
     public void handle(CommandContext ctx) {
         // make sure server is online
-        if (new MineStat(ctx.getConf().get("mc_server_ip"), 25565).isServerUp()) {
+        if (new MineStat(ctx.getConf().get("mc_server_ip"), Integer.parseInt(ctx.getConf().get("mc_server_port"))).isServerUp()) {
             handle2(ctx);
         } else {
             ctx.getChannel().sendMessage("Could not execute command at the time.").queue();

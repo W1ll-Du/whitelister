@@ -1,0 +1,18 @@
+{
+  "_RENAME_ME_TO_" : "whitelist.json",
+  "token" : "[your bot token here]",
+  "prefix" : "w!",
+  "owner_id" : "[your user id here]",
+  "discord_server_id" : "[your server id here]",
+  "bot_channel_id" : "[your bot channel id here]",
+  "whitelist_role_id" : "[your whitelist role id here]",
+  "banned_role_id" : "[your banned role id here]",
+  "mc_server_ip" : "[your server ip here]",
+  "mc_server_port" : "25565",
+  "rcon_port" : "25575",
+  "rcon_password" : "[your rcon password here]",
+  "enable_fdlink" : "false",
+  "fdlink_bot_id" : "[your fdlink bot id here]",
+  "log_channel_id" : "[your fdlink log channel here]",
+  "online_role_id" : "[your online role id here]"
+}
