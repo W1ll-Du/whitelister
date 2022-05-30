@@ -25,6 +25,7 @@ public class CommandManager {
         addCommand(new RelinkCommand());
         addCommand(new RefreshCommand());
         addCommand(new ForceUnlinkCommand());
+        addCommand(new HelpCommand());
         //addCommand(new GetConfigCommand()); //(debug)
         //addCommand(new SetConfigCommand());
         //addCommand(new GetPlayerMapCommand()); // (debug)
